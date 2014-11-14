@@ -6,6 +6,7 @@ class Entity {
 	protected $color = "";
 	/* A table with the history of hits? */
 	protected $hits = array();
+	protected $todays_score = 0;
 	protected $proportion = 0;
 
 	public function __construct( /*string*/ $file_name, /*string*/ $color ) {
@@ -19,6 +20,10 @@ class Entity {
 		            	// process the hit line read.
 				$array = explode( ":", $line );
 				$this->hits[ $array[1] ] = $array[0];
+			} else if( $i === 0 ){
+				$score_space = explode( ":", $line );
+				$score = explode( " ", $score_space[1] );
+				$this->todays_score = $score[0];
 			}
 			$i++;
 		    }
@@ -33,6 +38,9 @@ class Entity {
 	}
 	public function get_color(){
 	    return $this->color;
+	}
+	public function get_score(){
+	    return $this->todays_score;
 	}
 	public function get_proportion(){
 	    return $this->proportion;

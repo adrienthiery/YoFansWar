@@ -7,6 +7,7 @@ body {
 	background:#9B59B6;
 	position: absolute;
 	top: 0;
+	margin-top: 0;
 }
 
 *{
@@ -15,17 +16,39 @@ body {
         box-sizing: border-box;
 }
 
+*+* {
+	margin-top: 5px;
+}
+
 #recent {
 	float: right;
 	width: 20%;
 	height: 100%;
+	margin-top: 0;
 	vertical-align: top;
 	border-left: solid 2px white;
 }
 
 #battle-ground {
-	margin: 5%;
+	position: absolute;
+	top: 5%;
+	left: 5%;
 	height: 80%;
 	width: 69%;
 	border: solid 2px white;
+}
+
+#battle-ground > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 0;
+	display: inline-block;
+}
+
+h3 {
+	color: #9B59B6;
+	background-color: white;
+	width: 100%;
+	padding: 5px;
 }
