@@ -43,13 +43,13 @@
  
 	?>
 	<div id='battle-ground'>
-		<div style='background-color: <?php echo $entities[0]->get_color(); ?>; width:<?php echo $x; ?>%; height: <?php echo $y2; ?>%; vertical-align: top;'>
+		<div style='background-color: <?php echo $entities[0]->get_color(); ?>; width:<?php echo $x; ?>%; height: <?php echo $y2; ?>%; '>
+		</div>
+		<div style='background-color: <?php echo $entities[2]->get_color(); ?>; width:<?php echo 100-$x; ?>%; height: <?php echo $y1; ?>%; left: <?php echo $x; ?>%;'>
 		</div>	
-		<div style='background-color: <?php echo $entities[2]->get_color(); ?>; width:<?php echo 100-$x; ?>%; height: <?php echo $y1; ?>%; left: <?php echo (100-$x)*0.875; ?>%;'>
+		<div style='background-color: <?php echo $entities[1]->get_color(); ?>; width:<?php echo $x; ?>%; height: <?php echo 100-$y2; ?>%; top: <?php echo $y2; ?>%;'>
 		</div>	
-		<div style='background-color: <?php echo $entities[1]->get_color(); ?>; width:<?php echo $x; ?>%; height: <?php echo 100-$y2; ?>%; top: <?php echo 100-$y2; ?>%;'>
-		</div>	
-		<div style='background-color: <?php echo $entities[3]->get_color(); ?>; width:<?php echo 100-$x; ?>%; height: <?php echo 100-$y1; ?>%; top: <?php echo $y1; ?>%; left: <?php echo (100-$x)*0.875; ?>%;'>
+		<div style='background-color: <?php echo $entities[3]->get_color(); ?>; width:<?php echo 100-$x; ?>%; height: <?php echo 100-$y1; ?>%; top: <?php echo $y1; ?>%; left: <?php echo $x; ?>%;'>
 		</div>	
 	</div>
 <script>
