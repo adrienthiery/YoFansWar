@@ -6,17 +6,18 @@ class Entity {
 	protected $color = "";
 	/* A table with the history of hits? */
 	protected $hits = array();
+	protected $proportion = 0;
 
 	public function __construct( /*string*/ $file_name, /*string*/ $color ) {
 		$this->name = $file_name;
 		$this->color = $color;
-		$handle = fopen($filename, "r");
+		$handle = fopen($file_name, "r");
 		$i = 0;
 		if ($handle) {
 		    while (($line = fgets($handle)) !== false) {
 		    	if( $i !== 0 && substr( $line, 0, 1 ) != "%" ){
 		            	// process the hit line read.
-				$array = explode( ":", $line )
+				$array = explode( ":", $line );
 				$this->hits[ $array[1] ] = $array[0];
 			}
 			$i++;
@@ -32,6 +33,12 @@ class Entity {
 	}
 	public function get_color(){
 	    return $this->color;
+	}
+	public function get_proportion(){
+	    return $this->proportion;
+	}
+	public function set_proportion( /*float*/ $proportion ){
+	    $this->proportion = $proportion;
 	}
 	public function get_hits(){
 	    return $this->hits;

@@ -10,19 +10,25 @@
 </head>
 <body>
 <?php 
-	include( 'entity_class.php' );
-//Read file, define entities, calculate proportions ?>
-	<div id='recent'></div>
+	include( 'Entity.php' );
+//Read file, define entities, calculate proportions 
+	$entities = array(
+		new Entity( 'google', "#cc0" ),
+		new Entity( 'apple', "#fff" ),
+		new Entity( 'microsoft', "#00c" ),
+		new Entity( 'yo', "#713b87" )
+	);
+?>
+	<div id='recent'>
+	<?php foreach( $entities as $entity ){
+		echo '<div style="color:'.$entity->get_color().';">'.$entity->get_name().'</div>';
+	} ?></div>
 	<div id='battle-ground'>
-	<?php foreach( $entities as $entity ){
-		var_dump( $entity );
-	} ?>
+	<?php foreach( $entities as $entity ){ ?>
+		<div class='<?php echo $entity->get_name(); ?>' style=''>
+		</div>	
+	<?php } ?>
 	</div>
-	<div class='legend'>
-	<?php foreach( $entities as $entity ){
-		echo $entity->color; echo $entity->name;
-	} ?>
-	<div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
