@@ -21,7 +21,7 @@ function write_score( $file, $score=null  ){
 	fclose( $handle );
 }
 
-$api_token = "5032dc6f-172b-4f96-9835-98b616405161";
+include( '../token_war.php' );
 
 // Receive YO's and increment hits 
 // Get parameters from url

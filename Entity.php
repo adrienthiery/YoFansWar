@@ -19,7 +19,7 @@ class Entity {
 		    	if( $i !== 0 && substr( $line, 0, 1 ) != "%" ){
 		            	// process the hit line read.
 				$array = explode( ":", $line );
-				$this->hits[ $array[1] ] = $array[0];
+				$this->hits[ $array[0] ] = $array[1];
 			} else if( $i === 0 ){
 				$score_space = explode( ":", $line );
 				$score = explode( " ", $score_space[1] );
@@ -52,10 +52,12 @@ class Entity {
 	    return $this->hits;
 	}
 	public function get_latest_hit(){
-	    return new Hit( end( $this->hits ), new DateTime( key( $this->hits ) ) );
+	    $datetime = new DateTime();
+	    return new Hit( end( $this->hits ), $datetime->setTimestamp( key( $this->hits ) ) );
 	}
 	public function get_first_hit(){
-	    return new Hit( reset($this->hits) , new DateTime( key( $this->hits ) ) );
+	    $datetime = new DateTime();
+	    return new Hit( reset($this->hits) , $dqtetime->setTimestamp( key( $this->hits ) ) );
 	}
 	public function get_todays_hits(){
 	    $arr = $this->hits;
